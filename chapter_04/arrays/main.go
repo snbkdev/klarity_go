@@ -14,4 +14,20 @@ func main() {
 	for _, v := range a {
 		fmt.Printf("%d\n", v)
 	}
+
+	var q [3]int = [3]int{1, 2, 3}
+	var r [3]int = [3]int{1, 2}
+	fmt.Println(r[2], q)
+
+	symbol := [...]string{USD: "$", EUR:"E", GBP:"£", RUB:"P"}
+	fmt.Println(RUB, symbol[RUB])
 }
+
+type Currency int
+
+const (
+	USD Currency = iota
+	EUR
+	GBP
+	RUB
+)
