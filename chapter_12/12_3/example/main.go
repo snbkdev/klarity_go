@@ -35,8 +35,50 @@ func formatAtom(v reflect.Value) string {
 	}
 }
 
+type Movie struct {
+	Title, Subtitle string
+	Year int
+	Color bool
+	Actor map[string]string
+	Oscars []string
+	Sequel *string
+}
+
 func main() {
-	//
+	strangelove := Movie{
+		Title: "Dr. Strangelove",
+		Subtitle: "How I learned to stop worrying and love the bomb",
+		Year: 1964,
+		Color: false,
+		Actor: map[string]string{
+			"Dr. Strangelove": "Peter Sellers",
+			"Grp. Capt. Lionel Mandrake": "Peter Sellers",
+			"Pres. Merkin Muffley": "Peter Sellers",
+			"Gen. Buck Turgidson": "George C. Scott",
+			"Brig. Gen. Jack D. Ripper": "Sterling Hayden",
+			"Maj. T.J. King Kong": "Slim Pickens",
+		},
+		Oscars: []string{
+			"Best Actor (Nomin.)",
+			"Best Adapted Screenplay (Nomin.)",
+			"Best Director (Nomin.)",
+			"Best Picture (Nomin.)",
+		},
+	}
+	
+	Display("stranglove", strangelove)
+	// stranglove.Color = false
+ 	// stranglove.Actor["Maj. T.J. King Kong"] = "Slim Pickens"
+ 	// stranglove.Actor["Dr. Strangelove"] = "Peter Sellers"
+ 	// stranglove.Actor["Grp. Capt. Lionel Mandrake"] = "Peter Sellers"
+ 	// stranglove.Actor["Pres. Merkin Muffley"] = "Peter Sellers"
+ 	// stranglove.Actor["Gen. Buck Turgidson"] = "George C. Scott"
+ 	// stranglove.Actor["Brig. Gen. Jack D. Ripper"] = "Sterling Hayden"
+ 	// stranglove.Oscars[0] = "Best Actor (Nomin.)"
+ 	// stranglove.Oscars[1] = "Best Adapted Screenplay (Nomin.)"
+ 	// stranglove.Oscars[2] = "Best Director (Nomin.)"
+ 	// stranglove.Oscars[3] = "Best Picture (Nomin.)"
+	// stranglove.Sequel = nil
 }
 
 func display(path string, v reflect.Value) {
@@ -73,3 +115,4 @@ func display(path string, v reflect.Value) {
 		fmt.Printf(" %s = %s\n", path , formatAtom(v))
 	}
 }
+
